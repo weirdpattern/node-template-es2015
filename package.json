@@ -30,9 +30,9 @@
   "scripts": {
     "lint": "semistandard --verbose | snazzy",
     "specs": "node ./spec/index.js | tap-summary",
+    "test": "npm run lint && npm run specs",
     "coverage": "babel-istanbul cover ./spec/**/*.js",
-    "test": "npm run lint && npm run specs && npm run coverage",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "review": "npm run test && npm run coverage"
   },
 
   "semistandard": {

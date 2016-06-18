@@ -8,11 +8,15 @@
 ### Build Status
 - Visit [travis-ci.org](https://travis-ci.org/)
 - Sign in with your GitHub account.
+- Go to `https://travis-ci.org/<user>/<repo>/settings`
+  * Update your settings.
+  * Add a new environment variable named `COVERALLS_REPO_TOKEN` (value comes from your [coveralls.io](https://coveralls.io/) account, so we will revisit this step later).
 - Enjoy!
 
 ### Coverage Status
 - Visit [coveralls.io](https://coveralls.io/)
 - Sign in with your GitHub account.
+- Get your repo token and update [travis-ci.org](https://travis-ci.org/).
 - Enjoy!
 
 ### Dependency Status
