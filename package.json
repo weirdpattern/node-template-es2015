@@ -1,0 +1,36 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+
+  "name": "package.name",
+  "description": "package.description",
+  "author": "package.author",
+
+  "main": "index.js",
+
+  "engines": {
+    "node": "^4.4.3"
+  },
+
+  "dependencies": {
+    "commander": "^2.9.0",
+    "babel-core": "^6.9.1",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0"
+  },
+
+  "devDependencies": {
+    "snazzy": "*",
+    "semistandard": "*",
+    "babel-eslint": "*"
+  },
+
+  "scripts": {
+    "lint": "semistandard --verbose | snazzy",
+    "test": "npm run lint && node ./spec/index.js"
+  },
+
+  "semistandard": {
+    "parser": "babel-eslint"
+  }
+}
