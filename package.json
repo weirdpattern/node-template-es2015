@@ -23,14 +23,14 @@
     "semistandard": "*",
     "babel-eslint": "*",
     "tape": "*",
-    "tap-summary": "*",
+    "tap-spec": "*",
     "babel-istanbul": "*",
     "coveralls": "*"
   },
 
   "scripts": {
     "lint": "semistandard --verbose | snazzy",
-    "specs": "tape ./spec/index.js | tap-summary",
+    "specs": "tape ./spec/index.js | tap-spec",
     "test": "npm run lint && npm run specs",
     "coverage": "babel-istanbul cover ./spec/**/*.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
