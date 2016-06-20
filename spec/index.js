@@ -19,7 +19,7 @@ const path = require('path');
  * @param {Function} callback - the actual test code.
  */
 function executor (title, callback) {
-  test(title, (assert) => {
+  test(title, function (assert) {
     if (callback(assert) === void 0) {
       assert.end();
     }
