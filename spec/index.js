@@ -33,9 +33,9 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
     process.exit(1);
   }
 
-  let suite;
-  let method;
-  let library;
+  var suite;
+  var method;
+  var library;
 
   files && files.forEach(function (filename) {
     suite = require(filename);
