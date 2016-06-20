@@ -34,8 +34,8 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
   }
 
   var suite;
-  var method;
   var library;
+  var segments;
 
   files && files.forEach(function (filename) {
     suite = require(filename);
@@ -43,7 +43,7 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
     if (suite && 'default' in suite) {
       suite = suite['default'];
 
-      [ library, method ] = path.basename(filename, '.js').split('#');
+      segments = path.basename(filename, '.js').split('#');
       library = path.relative(
         __dirname,                 // current directory
         path.join('lib',           // lib directory
@@ -51,12 +51,12 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
             __dirname,
             path.dirname(filename)
           ),
-          library                  // library (js file)
+          segments[0]              // library (js file)
         )
       );
 
-      if (method != null) {
-        suite(executor, require(library)[method]);
+      if (segments[1] != null) {
+        suite(executor, require(library)[segments[1]]);
       } else {
         suite(executor, require(library));
       }
