@@ -32,7 +32,7 @@
 
   "scripts": {
     "lint": "semistandard --verbose | snazzy",
-    "specs": "tape ./spec/index.js | tap-spec",
+    "specs": "babel-node node_modules/.bin/tape ./spec/index.js | tap-spec",
     "test": "npm run lint && npm run specs",
     "coverage": "babel-node node_modules/.bin/babel-istanbul cover -x spec/*.js tape -- spec/index.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
