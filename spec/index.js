@@ -50,10 +50,13 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
         )
       );
 
-      if (segments.length === 1) {
-        suite(executor, require(library));
+      library = require(library);
+      if (segments.length === 2) {
+        suite(executor, library[segments[0]]);
+      } else if (segments.length === 1 && 'default' in library) {
+        suite(executor, library.default);
       } else {
-        suite(executor, require(library)[segments[0]]);
+        suite(executor, library);
       }
     }
   });
