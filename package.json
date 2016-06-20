@@ -21,11 +21,12 @@
   "devDependencies": {
     "glob": "*",
     "snazzy": "*",
-    "semistandard": "*",
-    "babel-eslint": "*",
     "tape": "*",
     "tap-spec": "*",
+    "semistandard": "*",
+    "babel-eslint": "*",
     "babel-istanbul": "*",
+    "babel-cli": "*",
     "coveralls": "*"
   },
 
@@ -33,10 +34,9 @@
     "lint": "semistandard --verbose | snazzy",
     "specs": "tape ./spec/index.js | tap-spec",
     "test": "npm run lint && npm run specs",
-    "coverage": "babel-istanbul cover ./spec/**/*.js",
+    "coverage": "babel-node node_modules/.bin/babel-istanbul cover -x spec/*.js tape -- spec/index.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "review": "npm run test && npm run coverage",
-    "view-coverage": "open ./coverage/lcov-report/index.html"
+    "review-coverage": "open ./coverage/lcov-report/index.html"
   },
 
   "semistandard": {

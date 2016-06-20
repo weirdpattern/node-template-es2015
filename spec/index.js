@@ -2,9 +2,6 @@
  * @module test
  */
 
-require('babel-core/register');
-require('babel-polyfill');
-
 const test = require('tape');
 const glob = require('glob');
 const path = require('path');
@@ -39,26 +36,24 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, function (
 
   files && files.forEach(function (filename) {
     suite = require(filename);
-
     if (suite && 'default' in suite) {
       suite = suite['default'];
-
-      segments = path.basename(filename, '.js').split('#');
+      segments = path.basename(filename, '.js').split('@');
       library = path.relative(
-        __dirname,                 // current directory
-        path.join('lib',           // lib directory
-          path.relative(           // path to library from lib or spec folder
+        __dirname,
+        path.join('lib',
+          path.relative(
             __dirname,
             path.dirname(filename)
           ),
-          segments[0]              // library (js file)
+          segments.length === 1 ? segments[0] : segments[1]
         )
       );
 
-      if (segments[1] != null) {
-        suite(executor, require(library)[segments[1]]);
-      } else {
+      if (segments.length === 1) {
         suite(executor, require(library));
+      } else {
+        suite(executor, require(library)[segments[0]]);
       }
     }
   });
