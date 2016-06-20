@@ -20,8 +20,9 @@ const path = require('path');
  */
 function executor (title, callback) {
   test(title, (assert) => {
-    callback(assert);
-    assert.end();
+    if (callback(assert) === void 0) {
+      assert.end();
+    }
   });
 }
 
