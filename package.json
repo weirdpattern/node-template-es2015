@@ -34,7 +34,7 @@
     "lint": "semistandard --verbose | snazzy",
     "specs": "babel-node node_modules/.bin/tape ./spec/index.js | tap-spec",
     "test": "npm run lint && npm run specs",
-    "coverage": "babel-node node_modules/.bin/babel-istanbul cover -x spec/*.js tape -- spec/index.js",
+    "coverage": "babel-node node_modules/.bin/babel-istanbul cover --include-all-sources -x index.js -x spec/index.js tape -- spec/index.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "review-coverage": "open ./coverage/lcov-report/index.html"
   },
