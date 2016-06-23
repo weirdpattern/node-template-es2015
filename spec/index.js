@@ -3,6 +3,7 @@
 const test = require('tape');
 const glob = require('glob');
 const path = require('path');
+const hasOwnProperty = Object.prototype.hasOwnProperty;
 
 /*
  * @private
@@ -34,7 +35,7 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, (err, file
 
   files && files.forEach((filename) => {
     suite = require(filename);
-    if (suite && 'default' in suite) {
+    if (suite && hasOwnProperty.call(suite, 'default')) {
       suite = suite[ 'default' ];
     }
 
@@ -53,7 +54,7 @@ glob('spec/**/*.js', { 'realpath': true, 'ignore': 'spec/index.js' }, (err, file
     library = require(library);
     if (segments.length === 2) {
       suite(executor, library[segments[0]]);
-    } else if (segments.length === 1 && 'default' in library) {
+    } else if (segments.length === 1 && hasOwnProperty.call(library, 'default')) {
       suite(executor, library.default);
     } else {
       suite(executor, library);
