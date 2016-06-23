@@ -1,8 +1,8 @@
 # Package name
 
-[![Build Status](https://travis-ci.org/weirdpattern/node-template.svg?branch=master)](https://travis-ci.org/weirdpattern/node-template)
-[![Coverage Status](https://coveralls.io/repos/github/weirdpattern/node-template/badge.svg?branch=master)](https://coveralls.io/github/weirdpattern/node-template?branch=master)
-[![Dependency Status](https://gemnasium.com/badges/github.com/weirdpattern/node-template.svg)](https://gemnasium.com/github.com/weirdpattern/node-template)
+[![Build Status](https://travis-ci.org/weirdpattern/node-template-es2015.svg?branch=master)](https://travis-ci.org/weirdpattern/node-template-es2015)
+[![Coverage Status](https://coveralls.io/repos/github/weirdpattern/node-template-es2015/badge.svg?branch=master)](https://coveralls.io/github/weirdpattern/node-template-es2015?branch=master)
+[![Dependency Status](https://gemnasium.com/badges/github.com/weirdpattern/node-template-es2015.svg)](https://gemnasium.com/github.com/weirdpattern/node-template-es2015)
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat)](https://github.com/Flet/semistandard)
 
 ### Build Status
